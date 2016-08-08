@@ -10,10 +10,11 @@ end
 
 get "/address" do
   content_type( :json )
+  user_postcode = WordFormatter.new("iv2 3nn")
   address = {
     address: "17 Crown Drive",
     buuilding: "Roodlands",
-    postcode: "iv2 3nn",
+    postcode: user_postcode.make_upcase(),
     phone: "01463 241 546"
   }
   return address.to_json()

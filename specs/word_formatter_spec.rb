@@ -3,12 +3,14 @@ require_relative( "../models/word_formatter" )
 
 class TestWordFormatter < MiniTest::Test
 
-  def setup
-    @word_formatter = WordFormatter.new("iv2 3nn")
+  def test_make_upcase
+    postcode = WordFormatter.new("iv2 3nn")
+    assert_equal("IV2 3NN", postcode.make_upcase() )
   end
 
-  def test_make_upcase
-    assert_equal("IV2 3NN", @word_formatter.make_upcase() )
+  def test_make_camelcase
+    codeclan = WordFormatter.new("code clan")
+    assert_equal("CodeClan", codeclan.make_camelcase)
   end
 
 end
