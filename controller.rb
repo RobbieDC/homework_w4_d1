@@ -19,3 +19,10 @@ get "/address" do
   }
   return address.to_json()
 end
+
+get "/camelize/:user_string" do
+  content_type( :json )
+  string_to_camelize = WordFormatter.new( params[:user_string] )
+  camelized_string = string_to_camelize.make_camelcase
+  return camelized_string.to_json
+end
